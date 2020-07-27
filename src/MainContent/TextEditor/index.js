@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -7,11 +8,12 @@ import {
   faCheckSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import "./index.css";
-import { render } from "@testing-library/react";
+import NoteContext from "./../../context/noteData.context";
 
 const TextEditor = (props) => {
   const [isFocused, setisFocused] = useState(false);
   const [imageUrl, setimageUrl] = useState("");
+  const [inputValue, setinputValue] = useState("");
   const inputFileRef = React.createRef();
   const onFocus = () => {
     setisFocused(true);
@@ -51,6 +53,21 @@ const TextEditor = (props) => {
     setimageUrl("");
   };
 
+  const { addNote } = useContext(NoteContext);
+
+  const saveNote = () => {
+    addNote({
+      imageUrl,
+      desc: inputValue,
+    });
+    setinputValue("");
+    setimageUrl("");
+  };
+
+  const handleChange = (e) => {
+    setinputValue(e.target.value);
+  };
+
   return (
     <div class="container">
       <div class="center">
@@ -69,6 +86,8 @@ const TextEditor = (props) => {
                 placeholder="Take a note..."
                 onFocus={onFocus}
                 onKeyDown={handleKeyDown}
+                value={inputValue}
+                onChange={handleChange}
               />
             ) : (
               <input
@@ -76,6 +95,8 @@ const TextEditor = (props) => {
                 onFocus={onFocus}
                 onBlur={onBlur}
                 onKeyDown={handleKeyDown}
+                value={inputValue}
+                onChange={handleChange}
               />
             )}
           </div>
@@ -102,7 +123,9 @@ const TextEditor = (props) => {
             </div>
             {isFocused && (
               <div>
-                <button class="btn">save</button>
+                <button class="btn" onClick={saveNote}>
+                  save
+                </button>
                 <button
                   class="btn"
                   style={{ marginLeft: "10px" }}

@@ -4,6 +4,7 @@ import { Spring } from "react-spring/renderprops";
 
 import Header from "./header";
 import MainContent from "./MainContent";
+import NoteProvider from "./context/NoteProvider";
 
 const App = () => {
   const [isSideBarOpen, setisSideBarOpen] = useState(true);
@@ -12,23 +13,25 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header togglemenu={togglemenu} isSideBarOpen={isSideBarOpen} />
-      <div className="d-flex">
-        <Spring
-          from={{ width: isSideBarOpen ? "5%" : "15%" }}
-          to={{ width: !isSideBarOpen ? "5%" : "15%" }}
-        >
-          {(props) => (
-            <div style={props}>
-              <SideBar isSideBarOpen={isSideBarOpen} />
-            </div>
-          )}
-        </Spring>
+      <NoteProvider>
+        <Header togglemenu={togglemenu} isSideBarOpen={isSideBarOpen} />
+        <div className="d-flex">
+          <Spring
+            from={{ width: isSideBarOpen ? "5%" : "15%" }}
+            to={{ width: !isSideBarOpen ? "5%" : "15%" }}
+          >
+            {(props) => (
+              <div style={props}>
+                <SideBar isSideBarOpen={isSideBarOpen} />
+              </div>
+            )}
+          </Spring>
 
-        <div style={{ width: isSideBarOpen ? "95%" : "85%" }}>
-          <MainContent />
+          <div style={{ width: isSideBarOpen ? "95%" : "85%" }}>
+            <MainContent />
+          </div>
         </div>
-      </div>
+      </NoteProvider>
     </div>
   );
 };

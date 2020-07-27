@@ -11,7 +11,7 @@
   border-radius: 8px;
   padding: 10px;
   margin: 10px;
-
+  word-wrap: break-word;
   transition: 0.5s;
 }
 
@@ -29,4 +29,8 @@
 
 .note-card__title {
   padding-bottom: 10px;
+}
+
+.mb-2 {
+  margin-bottom: 10px;
 }
