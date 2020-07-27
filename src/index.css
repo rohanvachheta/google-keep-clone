@@ -15,6 +15,13 @@ code {
 .d-flex {
   display: flex;
 }
+.sidebar {
+  width: 15%;
+}
+
+.main-menu {
+  width: 85%;
+}
 
 a {
   color: black;

@@ -6,14 +6,14 @@ import "./index.css";
 import SearchInput from "../searchInput";
 import HeaderMenuSideBar from "./HeaderMenuSideBar";
 
-const HeaderMenu = (props) => {
+const HeaderMenu = ({ togglemenu }) => {
   return (
     <header>
       <div className="main-header">
         <div className="small-menu">
-          <span className="header-menu__icons">
+          <a className="header-menu__icons" onClick={togglemenu}>
             <FontAwesomeIcon icon={faBars} size="1x" />
-          </span>
+          </a>
           <div className="logo">
             <img
               src="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png"

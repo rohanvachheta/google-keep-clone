@@ -34,7 +34,7 @@ const TextEditor = (props) => {
 
       reader.onloadend = () => {
         setimageUrl(URL.createObjectURL(file));
-        console.log("reader.onloadend -> render.result", render.result);
+        setisFocused(true);
       };
 
       reader.readAsDataURL(file);
@@ -48,6 +48,7 @@ const TextEditor = (props) => {
 
   const removeFocusInput = () => {
     setisFocused(false);
+    setimageUrl("");
   };
 
   return (

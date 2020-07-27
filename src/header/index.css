@@ -20,6 +20,16 @@
 .header-menu__icons {
   cursor: pointer;
 }
+
+.header-menu__icons:hover {
+  background-color: #bdbdbd46;
+  border: none;
+  border-radius: 15px;
+  text-align: center;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
 .sidebar-icon .header-menu__icons {
   padding: 15px;
 }

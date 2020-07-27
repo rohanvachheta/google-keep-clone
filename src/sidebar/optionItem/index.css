@@ -1,6 +1,7 @@
 .option-item {
   padding: 15px;
   cursor: pointer;
+  display: flex;
 }
 
 .option-item:hover {
