@@ -1,0 +1,21 @@
+.option-item {
+  padding: 15px;
+}
+
+.option-item:hover {
+  background-color: rgba(207, 207, 207, 0.5);
+  border-radius: 0 25px 25px 0;
+}
+
+.option-item-active {
+  background-color: #feefc3;
+  border-radius: 0 25px 25px 0;
+}
+
+.option-item__icon {
+  padding: 0 10px;
+}
+
+.option-item__name {
+  padding: 0 10px;
+}
