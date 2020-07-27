@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useContext } from "react";
-import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faImage,
@@ -10,7 +9,7 @@ import {
 import "./index.css";
 import NoteContext from "./../../context/noteData.context";
 
-const TextEditor = (props) => {
+const TextEditor = () => {
   const [isFocused, setisFocused] = useState(false);
   const [imageUrl, setimageUrl] = useState("");
   const [inputValue, setinputValue] = useState("");
@@ -69,79 +68,77 @@ const TextEditor = (props) => {
   };
 
   return (
-    <div class="container">
-      <div class="center">
-        <div
-          className={` ${
-            isFocused ? "text-editor text-block-editor" : "text-editor"
-          } `}
-        >
-          <div>
-            {imageUrl && (
-              <img alt="note" width="100%" height="200" src={imageUrl} />
-            )}
-            {isFocused ? (
-              <textarea
-                autoFocus
-                placeholder="Take a note..."
-                onFocus={onFocus}
-                onKeyDown={handleKeyDown}
-                value={inputValue}
-                onChange={handleChange}
-              />
-            ) : (
+    <div className="center">
+      <div
+        className={` ${
+          isFocused ? "text-editor text-block-editor" : "text-editor"
+        } `}
+      >
+        <div>
+          {imageUrl && (
+            <img alt="note" width="100%" height="200" src={imageUrl} />
+          )}
+          {isFocused ? (
+            <textarea
+              autoFocus
+              placeholder="Take a note..."
+              onFocus={onFocus}
+              onKeyDown={handleKeyDown}
+              value={inputValue}
+              onChange={handleChange}
+            />
+          ) : (
+            <input
+              placeholder="Take a note..."
+              onFocus={onFocus}
+              onBlur={onBlur}
+              onKeyDown={handleKeyDown}
+              value={inputValue}
+              onChange={handleChange}
+            />
+          )}
+        </div>
+        <div className="d-flex justify-content-center">
+          <div className="text-editor-icon">
+            <span className="text-editor__icons">
+              <FontAwesomeIcon icon={faCheckSquare} size="lg" />
+            </span>{" "}
+            <span className="text-editor__icons">
+              <FontAwesomeIcon icon={faEdit} size="lg" />
+            </span>
+            <span className="text-editor__icons">
               <input
-                placeholder="Take a note..."
-                onFocus={onFocus}
-                onBlur={onBlur}
-                onKeyDown={handleKeyDown}
-                value={inputValue}
-                onChange={handleChange}
+                ref={inputFileRef}
+                type="file"
+                onChange={onImageChange}
+                className="filetype d-none"
+                id="group_image"
               />
-            )}
+              <a href="#" onClick={handleImageUpload}>
+                <FontAwesomeIcon icon={faImage} size="lg" />
+              </a>
+            </span>
           </div>
-          <div className="d-flex justify-content-center">
-            <div className="text-editor-icon">
-              <span className="text-editor__icons">
-                <FontAwesomeIcon icon={faCheckSquare} size="lg" />
-              </span>{" "}
-              <span className="text-editor__icons">
-                <FontAwesomeIcon icon={faEdit} size="lg" />
-              </span>
-              <span className="text-editor__icons">
-                <input
-                  ref={inputFileRef}
-                  type="file"
-                  onChange={onImageChange}
-                  className="filetype d-none"
-                  id="group_image"
-                />
-                <a href="#" onClick={handleImageUpload}>
-                  <FontAwesomeIcon icon={faImage} size="lg" />
-                </a>
-              </span>
-            </div>
-            {isFocused && (
-              <div>
-                <button class="btn" onClick={saveNote}>
+          {isFocused && (
+            <div>
+              {(inputValue || imageUrl) && (
+                <button className="btn" onClick={saveNote}>
                   save
                 </button>
-                <button
-                  class="btn"
-                  style={{ marginLeft: "10px" }}
-                  onClick={removeFocusInput}
-                >
-                  cancel
-                </button>
-              </div>
-            )}
-          </div>
+              )}
+              <button
+                className="btn"
+                style={{ marginLeft: "10px" }}
+                onClick={removeFocusInput}
+              >
+                cancel
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
 };
-
-TextEditor.propTypes = {};
 
 export default TextEditor;

@@ -13,8 +13,9 @@ const KeepNoteCard = ({
   id,
   addDoneNote,
   imageUrl,
+  doneNotes,
 }) => {
-  const handleDelete = () => DeleteNote(id);
+  const handleDelete = () => DeleteNote(id, doneNotes);
   const handleDoneChange = () => addDoneNote({ title, desc, id, imageUrl });
   return (
     <MouseOver
@@ -30,7 +31,9 @@ const KeepNoteCard = ({
                   <FontAwesomeIcon icon={faTrash} />
                 </a>
                 <span className="note-card-icon">
-                  <input type="checkbox" onChange={handleDoneChange} />
+                  {!doneNotes && (
+                    <input type="checkbox" onChange={handleDoneChange} />
+                  )}
                 </span>
               </div>
             </div>
@@ -45,6 +48,21 @@ const KeepNoteCard = ({
   );
 };
 
-KeepNoteCard.propTypes = {};
+KeepNoteCard.propTypes = {
+  DeleteNote: PropTypes.func.isRequired,
+  addDoneNote: PropTypes.func.isRequired,
+  desc: PropTypes.string,
+  id: PropTypes.number.isRequired,
+  imageUrl: PropTypes.string,
+  title: PropTypes.string,
+  doneNotes: PropTypes.bool,
+};
+KeepNoteCard.defaultProps = {
+  desc: "",
+  id: PropTypes.number.isRequired,
+  imageUrl: "",
+  title: "",
+  doneNotes: false,
+};
 
 export default KeepNoteCard;

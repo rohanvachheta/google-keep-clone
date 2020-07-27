@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 
 const MouseOver = (props) => {
   const [onmouseOver, setonmouseOver] = useState(false);
@@ -16,7 +15,5 @@ const MouseOver = (props) => {
     </div>
   );
 };
-
-MouseOver.propTypes = {};
 
 export default MouseOver;

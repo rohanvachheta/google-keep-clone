@@ -6,7 +6,7 @@ import KeepNoteCard from "../keepNoteCard";
 import "./index.css";
 import NoteContext from "../../context/noteData.context";
 
-const ListTransition = ({ list, DeleteNote, addDoneNote }) => {
+const ListTransition = ({ list, DeleteNote, addDoneNote, doneNotes }) => {
   return (
     <Transition
       items={list}
@@ -22,11 +22,23 @@ const ListTransition = ({ list, DeleteNote, addDoneNote }) => {
             key={item.id}
             DeleteNote={DeleteNote}
             addDoneNote={addDoneNote}
+            doneNotes={doneNotes}
           />
         </div>
       )}
     </Transition>
   );
+};
+
+ListTransition.propTypes = {
+  DeleteNote: PropTypes.func.isRequired,
+  addDoneNote: PropTypes.func.isRequired,
+  list: PropTypes.arrayOf(PropTypes.string).isRequired,
+  doneNotes: PropTypes.bool,
+};
+
+ListTransition.defaultProps = {
+  doneNotes: false,
 };
 
 const KeepsDataList = (props) => {
@@ -54,6 +66,7 @@ const KeepsDataList = (props) => {
             list={doneNotes}
             DeleteNote={DeleteNote}
             addDoneNote={addDoneNote}
+            doneNotes
           />
           <br />
         </div>

@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import NoteContext from "../context/noteData.context";
 
 const NoteProvider = ({ children }) => {
-  const backupDoneList = [];
-  const backupNoteList = [];
-
   const addDoneNote = (noteDetails) => {
     changeState((prevState) => ({
       ...prevState,
@@ -17,7 +14,14 @@ const NoteProvider = ({ children }) => {
     //
   };
 
-  const DeleteNote = (deleteId) => {
+  const DeleteNote = (deleteId, isDoneNote = false) => {
+    if (isDoneNote) {
+      changeState((prevState) => ({
+        ...prevState,
+        doneNotes: prevState.doneNotes.filter((note) => note.id !== deleteId),
+      }));
+      return;
+    }
     changeState((prevState) => ({
       ...prevState,
       list: prevState.list.filter((note) => note.id !== deleteId),

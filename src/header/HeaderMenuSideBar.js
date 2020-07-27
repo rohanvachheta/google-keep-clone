@@ -1,9 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog, faRedo, faListAlt } from "@fortawesome/free-solid-svg-icons";
-import PropTypes from "prop-types";
 
-const HeaderMenuSideBar = (props) => {
+const HeaderMenuSideBar = () => {
   return (
     <div className="sidebar-icon">
       <span className="header-menu__icons">

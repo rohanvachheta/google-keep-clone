@@ -1,12 +1,22 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Spring } from "react-spring/renderprops";
 
 import "./index.css";
 
-const OptionItem = ({ name, icon, isfirst, isSideBarOpen }) => {
+const OptionItem = ({
+  name,
+  icon,
+  isfirst,
+  isSideBarOpen,
+  setselectedState,
+}) => {
   return (
-    <div className={`option-item ${isfirst && "option-item-active"}`}>
+    <div
+      className={`option-item ${isfirst && "option-item-active"}`}
+      onClick={setselectedState}
+    >
       <span className="option-item__icon">
         <FontAwesomeIcon icon={icon} />
       </span>
@@ -23,6 +33,11 @@ const OptionItem = ({ name, icon, isfirst, isSideBarOpen }) => {
   );
 };
 
-OptionItem.propTypes = {};
+OptionItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  isfirst: PropTypes.bool.isRequired,
+  isSideBarOpen: PropTypes.bool.isRequired,
+  setselectedState: PropTypes.func.isRequired,
+};
 
-export default OptionItem;
+export default React.memo(OptionItem, () => false);

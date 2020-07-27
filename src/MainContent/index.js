@@ -1,10 +1,9 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./index.css";
 import TextEditor from "./TextEditor";
 import KeepsDataList from "./KeepsDataList";
 
-const MainContent = (props) => {
+const MainContent = () => {
   return (
     <main>
       <div className="keep-main">
@@ -14,7 +13,5 @@ const MainContent = (props) => {
     </main>
   );
 };
-
-MainContent.propTypes = {};
 
 export default MainContent;
