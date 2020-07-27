@@ -8,8 +8,12 @@
   -webkit-box-shadow: 7px 0px 28px -4px rgba(209, 209, 209, 1);
   -moz-box-shadow: 7px 0px 28px -4px rgba(209, 209, 209, 1);
   box-shadow: 7px 0px 28px -4px rgba(209, 209, 209, 1);
-  height: 25px;
+  /* height: 25px; */
   border-radius: 10px;
+}
+
+.text-block-editor {
+  display: block;
 }
 
 .text-editor__icons {
@@ -24,7 +28,18 @@
 }
 
 .text-editor input {
-  margin-left: 15px;
+  width: 200%;
+  background: transparent;
+  border: none;
+  font-variant-ligatures: none;
+}
+
+.d-none {
+  display: none;
+}
+
+.text-editor textarea {
+  width: 100%;
   background: transparent;
   border: none;
   font-variant-ligatures: none;
@@ -32,4 +47,8 @@
   outline: none;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  resize: none;
+  overflow: hidden;
+  min-height: 50px;
+  max-height: 100px;
 }

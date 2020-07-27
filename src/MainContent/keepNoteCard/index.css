@@ -1,0 +1,17 @@
+.note-card {
+  border: 1px solid transparent;
+  max-width: 300px;
+  background-color: #fff;
+  border-color: #e0e0e0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.note-card__title {
+  padding-bottom: 10px;
+}
