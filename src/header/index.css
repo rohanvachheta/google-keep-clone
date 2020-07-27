@@ -1,0 +1,25 @@
+.main-header {
+  padding: 10px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.small-menu {
+  display: flex;
+  align-items: center;
+  width: 131px;
+  justify-content: space-evenly;
+}
+
+.logo {
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+.header-menu__icons {
+  cursor: pointer;
+}
+.sidebar-icon .header-menu__icons {
+  padding: 15px;
+}

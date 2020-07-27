@@ -6,8 +6,11 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      <div style={{ width: "300px" }}>
-        <SideBar />
+      <div className="d-flex">
+        <div style={{ width: "15%" }}>
+          <SideBar />
+        </div>
+        <div style={{ width: "85%" }}>main</div>
       </div>
     </div>
   );

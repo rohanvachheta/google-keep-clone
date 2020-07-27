@@ -1,5 +1,6 @@
 .option-item {
   padding: 15px;
+  cursor: pointer;
 }
 
 .option-item:hover {
@@ -9,6 +10,12 @@
 
 .option-item-active {
   background-color: #feefc3;
+  border-radius: 0 25px 25px 0;
+}
+
+.option-item-active:hover {
+  background-color: #feefc3;
+  cursor: pointer;
   border-radius: 0 25px 25px 0;
 }
 
