@@ -18,4 +18,4 @@ const SearchInput = (props) => {
 
 SearchInput.propTypes = {};
 
-export default SearchInput;
+export default React.memo(SearchInput);

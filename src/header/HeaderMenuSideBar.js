@@ -23,4 +23,4 @@ const HeaderMenuSideBar = (props) => {
 
 HeaderMenuSideBar.propTypes = {};
 
-export default HeaderMenuSideBar;
+export default React.memo(HeaderMenuSideBar);

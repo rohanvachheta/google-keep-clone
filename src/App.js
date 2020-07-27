@@ -6,7 +6,7 @@ import Header from "./header";
 import MainContent from "./MainContent";
 
 const App = () => {
-  const [isSideBarOpen, setisSideBarOpen] = useState(false);
+  const [isSideBarOpen, setisSideBarOpen] = useState(true);
 
   const togglemenu = () => setisSideBarOpen(!isSideBarOpen);
 

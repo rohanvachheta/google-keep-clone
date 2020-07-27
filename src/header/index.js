@@ -33,4 +33,4 @@ const HeaderMenu = ({ togglemenu }) => {
 
 HeaderMenu.propTypes = {};
 
-export default HeaderMenu;
+export default React.memo(HeaderMenu, () => false);
