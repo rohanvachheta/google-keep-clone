@@ -1,6 +1,6 @@
 .note-card {
   border: 1px solid transparent;
-  max-width: 300px;
+  width: 300px;
   background-color: #fff;
   border-color: #e0e0e0;
   -webkit-box-sizing: border-box;
@@ -10,6 +10,21 @@
   -webkit-border-radius: 8px;
   border-radius: 8px;
   padding: 10px;
+  margin: 10px;
+
+  transition: 0.5s;
+}
+
+.note-card-hover {
+  -webkit-box-shadow: 1px 28px 65px -15px rgba(133, 128, 133, 1);
+  -moz-box-shadow: 1px 28px 65px -15px rgba(133, 128, 133, 1);
+  box-shadow: 1px 28px 65px -15px rgba(133, 128, 133, 1);
+  transition: ease-in;
+  cursor: pointer;
+}
+
+.note-card-icon {
+  padding: 5px;
 }
 
 .note-card__title {
