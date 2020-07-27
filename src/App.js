@@ -1,6 +1,7 @@
 import React from "react";
 import SideBar from "./sidebar";
 import Header from "./header";
+import MainContent from "./MainContent";
 
 const App = () => {
   return (
@@ -10,7 +11,9 @@ const App = () => {
         <div style={{ width: "15%" }}>
           <SideBar />
         </div>
-        <div style={{ width: "85%" }}>main</div>
+        <div style={{ width: "85%" }}>
+          <MainContent />
+        </div>
       </div>
     </div>
   );
