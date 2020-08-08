@@ -8,6 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "./index.css";
 import NoteContext from "./../../context/noteData.context";
+import SimpleResizeableEditor from "./draft";
 
 const TextEditor = () => {
   const [isFocused, setisFocused] = useState(false);
@@ -60,6 +61,7 @@ const TextEditor = () => {
       desc: inputValue,
     });
     setinputValue("");
+    setisFocused(false);
     setimageUrl("");
   };
 
@@ -70,23 +72,21 @@ const TextEditor = () => {
   return (
     <div className="center">
       <div
-        className={` ${
+        className={` editor ${
           isFocused ? "text-editor text-block-editor" : "text-editor"
         } `}
       >
+        {isFocused && (
+          <button className="close-btn" onClick={removeFocusInput}>
+            X
+          </button>
+        )}
         <div>
           {imageUrl && (
             <img alt="note" width="100%" height="200" src={imageUrl} />
           )}
           {isFocused ? (
-            <textarea
-              autoFocus
-              placeholder="Take a note..."
-              onFocus={onFocus}
-              onKeyDown={handleKeyDown}
-              value={inputValue}
-              onChange={handleChange}
-            />
+            <SimpleResizeableEditor setinputValue={setinputValue} />
           ) : (
             <input
               placeholder="Take a note..."
@@ -100,12 +100,12 @@ const TextEditor = () => {
         </div>
         <div className="d-flex justify-content-center">
           <div className="text-editor-icon">
-            <span className="text-editor__icons">
+            {/* <span className="text-editor__icons">
               <FontAwesomeIcon icon={faCheckSquare} size="lg" />
             </span>{" "}
             <span className="text-editor__icons">
               <FontAwesomeIcon icon={faEdit} size="lg" />
-            </span>
+            </span> */}
             <span className="text-editor__icons">
               <input
                 ref={inputFileRef}

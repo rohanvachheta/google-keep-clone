@@ -6,6 +6,10 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import "./index.css";
 import MouseOver from "../../commonHoc/onMouseHover";
 
+function createMarkup(dec) {
+  return { __html: dec };
+}
+
 const KeepNoteCard = ({
   title,
   desc,
@@ -22,7 +26,10 @@ const KeepNoteCard = ({
       render={(isActive) => {
         return (
           <div className={`note-card ${isActive && "note-card-hover"} `}>
-            <div className="d-flex justify-content-center mb-2 ">
+            <div
+              className="d-flex justify-content-center mb-2 "
+              style={{ whiteSpace: "pre-wrap" }}
+            >
               <div className="note-card__title">
                 <strong>{title}</strong>
               </div>
@@ -37,7 +44,9 @@ const KeepNoteCard = ({
                 </span>
               </div>
             </div>
-            {desc}
+            {desc.split("\n").map((i) => {
+              return <p>{i}</p>;
+            })}
             {imageUrl && (
               <img height="130" width="100%" alt="note" src={imageUrl} />
             )}
