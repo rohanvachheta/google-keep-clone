@@ -34,3 +34,7 @@
 .mb-2 {
   margin-bottom: 10px;
 }
+
+.display-linebreak {
+  white-space: pre-line;
+}

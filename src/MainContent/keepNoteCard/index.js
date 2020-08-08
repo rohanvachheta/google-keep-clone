@@ -44,9 +44,8 @@ const KeepNoteCard = ({
                 </span>
               </div>
             </div>
-            {desc.split("\n").map((i) => {
-              return <p>{i}</p>;
-            })}
+            <div className="display-linebreak">{desc}</div>
+
             {imageUrl && (
               <img height="130" width="100%" alt="note" src={imageUrl} />
             )}
