@@ -5,6 +5,7 @@ import { Spring } from "react-spring/renderprops";
 import Header from "./header";
 import MainContent from "./MainContent";
 import NoteProvider from "./context/NoteProvider";
+import TestComponent from "./test/index";
 
 const App = () => {
   const [isSideBarOpen, setisSideBarOpen] = useState(true);
@@ -14,6 +15,8 @@ const App = () => {
   return (
     <div className="App">
       <NoteProvider>
+        <TestComponent />
+
         <Header togglemenu={togglemenu} isSideBarOpen={isSideBarOpen} />
         <div className="d-flex">
           <Spring

@@ -16,12 +16,11 @@
   background-color: white;
   color: #333333;
   position: absolute;
-  right: 31%;
+  right: -2%;
   cursor: pointer;
   /* left: 35%; */
   border-radius: 30%;
-  top: 10%;
-
+  top: -5%;
   box-shadow: 7px 0px 28px -4px rgb(173, 169, 169);
   padding: 8px;
   border: none;
