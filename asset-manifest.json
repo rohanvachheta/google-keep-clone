@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/rohanvachheta/google-keep-clone/static/css/main.08c68624.chunk.css",
+    "main.js": "/rohanvachheta/google-keep-clone/static/js/main.5e622d2e.chunk.js",
+    "main.js.map": "/rohanvachheta/google-keep-clone/static/js/main.5e622d2e.chunk.js.map",
+    "runtime-main.js": "/rohanvachheta/google-keep-clone/static/js/runtime-main.9073a070.js",
+    "runtime-main.js.map": "/rohanvachheta/google-keep-clone/static/js/runtime-main.9073a070.js.map",
+    "static/css/2.f755b4bb.chunk.css": "/rohanvachheta/google-keep-clone/static/css/2.f755b4bb.chunk.css",
+    "static/js/2.35a78f7d.chunk.js": "/rohanvachheta/google-keep-clone/static/js/2.35a78f7d.chunk.js",
+    "static/js/2.35a78f7d.chunk.js.map": "/rohanvachheta/google-keep-clone/static/js/2.35a78f7d.chunk.js.map",
+    "index.html": "/rohanvachheta/google-keep-clone/index.html",
+    "precache-manifest.415dad2c070a396a44a622fbe61a057b.js": "/rohanvachheta/google-keep-clone/precache-manifest.415dad2c070a396a44a622fbe61a057b.js",
+    "service-worker.js": "/rohanvachheta/google-keep-clone/service-worker.js",
+    "static/css/2.f755b4bb.chunk.css.map": "/rohanvachheta/google-keep-clone/static/css/2.f755b4bb.chunk.css.map",
+    "static/css/main.08c68624.chunk.css.map": "/rohanvachheta/google-keep-clone/static/css/main.08c68624.chunk.css.map",
+    "static/js/2.35a78f7d.chunk.js.LICENSE.txt": "/rohanvachheta/google-keep-clone/static/js/2.35a78f7d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9073a070.js",
+    "static/css/2.f755b4bb.chunk.css",
+    "static/js/2.35a78f7d.chunk.js",
+    "static/css/main.08c68624.chunk.css",
+    "static/js/main.5e622d2e.chunk.js"
+  ]
+}
