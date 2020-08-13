@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import NoteContext from "../context/noteData.context";
+import { saveState, loadState } from "../localStorage";
 
 const NoteProvider = ({ children }) => {
   const addDoneNote = (noteDetails) => {
@@ -49,15 +50,16 @@ const NoteProvider = ({ children }) => {
     DeleteNote,
     filterNote,
     searchValue: "",
-
     doneNotes: [],
     addDoneNote,
     uniqueId: 1,
     hanelSearch,
+    ...loadState(),
   };
 
   const [noteState, changeState] = useState(noteInitState);
 
+  saveState(noteState);
   return (
     <NoteContext.Provider value={noteState}>{children}</NoteContext.Provider>
   );
