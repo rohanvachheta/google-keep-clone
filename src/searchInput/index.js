@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import "./index.css";
-import NoteContext from "../context/noteData.context";
+import React, { useContext } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import './index.css';
+import NoteContext from '../context/noteData.context';
 
-const SearchInput = (props) => {
+const SearchInput = props => {
   const { searchValue, hanelSearch } = useContext(NoteContext);
 
-  const handleSearch = (event) => {
+  const handleSearch = event => {
     hanelSearch(event.target.value);
   };
 
