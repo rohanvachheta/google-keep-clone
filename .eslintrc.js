@@ -26,9 +26,10 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', 'prettier', 'react-hooks'],
+  plugins: ['react', 'prettier', 'react-hooks', 'better-styled-components'],
   rules: {
     'react-hooks/rules-of-hooks': 'error',
+    'better-styled-components/sort-declarations-alphabetically': 2,
     'react-hooks/exhaustive-deps': 'warn',
     'no-console': 'off',
     'jsx-a11y/anchor-is-valid': 'off',

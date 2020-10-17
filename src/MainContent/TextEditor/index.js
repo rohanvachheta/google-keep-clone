@@ -22,14 +22,14 @@ const TextEditor = () => {
     setisFocused(false);
   };
 
-  const handleKeyDown = e => {
+  const handleKeyDown = (e) => {
     e.target.style.height = 'inherit';
     e.target.style.height = `${e.target.scrollHeight}px`;
     // In case you have a limitation
     // e.target.style.height = `${Math.min(e.target.scrollHeight, limit)}px`;
   };
 
-  const onImageChange = event => {
+  const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
       const file = event.target.files[0];
@@ -42,7 +42,7 @@ const TextEditor = () => {
       reader.readAsDataURL(file);
     }
   };
-  const handleImageUpload = e => {
+  const handleImageUpload = (e) => {
     e.preventDefault();
     inputFileRef.current.click();
     //
@@ -65,7 +65,7 @@ const TextEditor = () => {
     setimageUrl('');
   };
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setinputValue(e.target.value);
   };
 

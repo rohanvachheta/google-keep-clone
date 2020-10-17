@@ -9,7 +9,7 @@ export default class TestComponent extends Component {
     return (
       <NoteContext.Consumer>
         {({ searchValue, hanelSearch }) => {
-          const handleSearch = event => {
+          const handleSearch = (event) => {
             hanelSearch(event.target.value);
           };
 

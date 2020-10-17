@@ -4,10 +4,13 @@
   "editor.formatOnType": true,
   "javascript.validate.enable": false,
   "editor.insertSpaces": true,
-  "editor.rulers": [
-    80
-  ],
+  "editor.rulers": [80],
   "editor.tabSize": 2,
   "eslint.enable": true,
-  "eslint.run": "onSave"
+  "eslint.run": "onSave",
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  }
 }

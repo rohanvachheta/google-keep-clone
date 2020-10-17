@@ -40,7 +40,7 @@ export default class SimpleEmojiEditor extends Component {
     });
   }
 
-  onChange = editorState => {
+  onChange = (editorState) => {
     this.setState({
       editorState,
     });
@@ -58,7 +58,7 @@ export default class SimpleEmojiEditor extends Component {
             editorState={this.state.editorState}
             onChange={this.onChange}
             plugins={plugins}
-            ref={element => {
+            ref={(element) => {
               this.editor = element;
             }}
             placeholder="enter note!!"

@@ -21,7 +21,7 @@ const OptionItem = ({
     </span>
     {isSideBarOpen && (
       <Spring delay={300} from={{ opacity: 0 }} to={{ opacity: 1 }}>
-        {props => (
+        {(props) => (
           <span style={props} className="option-item__name">
             {name}
           </span>
