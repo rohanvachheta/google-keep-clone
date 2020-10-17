@@ -15,6 +15,8 @@
     "draft-js-focus-plugin": "^3.0.1",
     "draft-js-plugins-editor": "^3.0.0",
     "draft-js-resizeable-plugin": "^2.0.9",
+    "mini-css-extract-plugin": "^0.11.2",
+    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dnd": "^11.1.3",
     "react-dnd-html5-backend": "^11.1.3",
@@ -24,11 +26,18 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts --max_old_space_size=4096 build",
+    "deploy": "aws s3 sync build/ s3://sp-react-production --acl public-read",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "lint": "eslint src",
+    "format": "prettier --single-quote --trailing-comma all --write \"src/**/*.{js,jsx}\"",
+    "textwatch": "sudo sysctl -w fs.inotify.max_user_watches=1000000",
+    "analyze": "node src/services/analyse",
+    "analyze-source-map": "source-map-explorer 'build/static/js/*.js'",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public",
+    "date-picker-config": "yarn add tejalkukadiya/react-datepicker#master"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,5 +53,36 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@sambego/storybook-state": "^2.0.1",
+    "@storybook/addon-actions": "^6.0.21",
+    "@storybook/addon-essentials": "^6.0.21",
+    "@storybook/addon-links": "^6.0.21",
+    "@storybook/node-logger": "^6.0.21",
+    "@storybook/preset-create-react-app": "^3.1.4",
+    "@storybook/preset-scss": "^1.0.2",
+    "@storybook/react": "^6.0.21",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-preset-react-app": "^9.1.2",
+    "css-loader": "^4.3.0",
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.2.0",
+    "husky": "^3.0.5",
+    "lint-staged": "^9.2.5",
+    "prettier": "^1.18.2",
+    "react-is": "^16.13.1",
+    "sass": "^1.26.11",
+    "sass-loader": "^10.0.2",
+    "scss-loader": "^0.0.1",
+    "style-loader": "^1.2.1"
   }
 }
