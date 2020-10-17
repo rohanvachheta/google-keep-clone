@@ -1,0 +1,13 @@
+{
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "javascript.validate.enable": false,
+  "editor.insertSpaces": true,
+  "editor.rulers": [
+    80
+  ],
+  "editor.tabSize": 2,
+  "eslint.enable": true,
+  "eslint.run": "onSave"
+}
