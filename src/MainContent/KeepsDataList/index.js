@@ -1,34 +1,32 @@
-import React, { useContext } from "react";
-import PropTypes from "prop-types";
-import { Transition } from "react-spring/renderprops";
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+import { Transition } from 'react-spring/renderprops';
 
-import KeepNoteCard from "../keepNoteCard";
-import "./index.css";
-import NoteContext from "../../context/noteData.context";
+import KeepNoteCard from '../keepNoteCard';
+import './index.css';
+import NoteContext from '../../context/noteData.context';
 
-const ListTransition = ({ list, DeleteNote, addDoneNote, doneNotes }) => {
-  return (
-    <Transition
-      items={list}
-      keys={(item) => item.id}
-      from={{ opacity: 0 }}
-      enter={{ opacity: 1 }}
-      leave={{ opacity: 0 }}
-    >
-      {(item) => (props) => (
-        <div style={props} key={item.id}>
-          <KeepNoteCard
-            {...item}
-            key={item.id}
-            DeleteNote={DeleteNote}
-            addDoneNote={addDoneNote}
-            doneNotes={doneNotes}
-          />
-        </div>
-      )}
-    </Transition>
-  );
-};
+const ListTransition = ({ list, DeleteNote, addDoneNote, doneNotes }) => (
+  <Transition
+    items={list}
+    keys={item => item.id}
+    from={{ opacity: 0 }}
+    enter={{ opacity: 1 }}
+    leave={{ opacity: 0 }}
+  >
+    {item => props => (
+      <div style={props} key={item.id}>
+        <KeepNoteCard
+          {...item}
+          key={item.id}
+          DeleteNote={DeleteNote}
+          addDoneNote={addDoneNote}
+          doneNotes={doneNotes}
+        />
+      </div>
+    )}
+  </Transition>
+);
 
 ListTransition.propTypes = {
   DeleteNote: PropTypes.func.isRequired,
@@ -41,16 +39,16 @@ ListTransition.defaultProps = {
   doneNotes: false,
 };
 
-const KeepsDataList = (props) => {
+const KeepsDataList = props => {
   const { DeleteNote, addDoneNote, searchValue } = useContext(NoteContext);
 
   let { list, doneNotes } = useContext(NoteContext);
 
   if (searchValue) {
-    list = list.filter((item) => item.desc.toLowerCase().includes(searchValue));
+    list = list.filter(item => item.desc.toLowerCase().includes(searchValue));
 
-    doneNotes = doneNotes.filter((item) =>
-      item.desc.toLowerCase().includes(searchValue)
+    doneNotes = doneNotes.filter(item =>
+      item.desc.toLowerCase().includes(searchValue),
     );
   }
 

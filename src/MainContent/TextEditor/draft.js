@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import Editor, { createEditorStateWithText } from "draft-js-plugins-editor";
+import React, { Component } from 'react';
+import Editor, { createEditorStateWithText } from 'draft-js-plugins-editor';
 
-import createEmojiPlugin from "draft-js-emoji-plugin";
+import createEmojiPlugin from 'draft-js-emoji-plugin';
 
-import "./editorStyles.css";
-import "draft-js/dist/Draft.css";
-import "draft-js-emoji-plugin/lib/plugin.css";
-import { EditorState } from "draft-js";
+import './editorStyles.css';
+import 'draft-js/dist/Draft.css';
+import 'draft-js-emoji-plugin/lib/plugin.css';
+import { EditorState } from 'draft-js';
 
 const emojiPlugin = createEmojiPlugin({
   useNativeArt: true,
@@ -29,18 +29,18 @@ export default class SimpleEmojiEditor extends Component {
   componentDidUpdate(prevpro, prevState) {
     if (this.state.editorState !== prevState.editorState) {
       this.props.setinputValue(
-        this.state.editorState.getCurrentContent().getPlainText("")
+        this.state.editorState.getCurrentContent().getPlainText(''),
       );
     }
   }
 
   componentWillUnmount() {
     this.setState({
-      editorState: EditorState.createEmpty(""),
+      editorState: EditorState.createEmpty(''),
     });
   }
 
-  onChange = (editorState) => {
+  onChange = editorState => {
     this.setState({
       editorState,
     });
@@ -58,7 +58,7 @@ export default class SimpleEmojiEditor extends Component {
             editorState={this.state.editorState}
             onChange={this.onChange}
             plugins={plugins}
-            ref={(element) => {
+            ref={element => {
               this.editor = element;
             }}
             placeholder="enter note!!"

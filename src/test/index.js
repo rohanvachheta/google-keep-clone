@@ -1,14 +1,15 @@
-import React, { Component } from "react";
-import NoteContext from "../context/noteData.context";
+import React, { Component } from 'react';
+import NoteContext from '../context/noteData.context';
 
 export default class TestComponent extends Component {
+  // eslint-disable-next-line react/static-property-placement
   static contextType = NoteContext;
 
   render() {
     return (
       <NoteContext.Consumer>
         {({ searchValue, hanelSearch }) => {
-          const handleSearch = (event) => {
+          const handleSearch = event => {
             hanelSearch(event.target.value);
           };
 
@@ -18,7 +19,7 @@ export default class TestComponent extends Component {
               placeholder="Search"
               className="search-input__input"
               onChange={handleSearch}
-              style={{ display: "none" }}
+              style={{ display: 'none' }}
             />
           );
         }}
