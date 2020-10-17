@@ -1,11 +1,11 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
 const NoteContext = createContext({
   list: [],
   addNote: () => {},
   DeleteNote: () => {},
   filterNote: () => {},
-  searchValue: "",
+  searchValue: '',
   doneNotes: [],
   addDoneNote: () => {},
   hanelSearch: () => {},

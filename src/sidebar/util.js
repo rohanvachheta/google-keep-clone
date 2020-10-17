@@ -4,27 +4,27 @@ import {
   faPencilAlt,
   faArchive,
   faTrash,
-} from "@fortawesome/free-solid-svg-icons";
+} from '@fortawesome/free-solid-svg-icons';
 
 const options = [
   {
-    name: "Notes",
+    name: 'Notes',
     icon: faLightbulb,
   },
   {
-    name: "Reminder",
+    name: 'Reminder',
     icon: faBell,
   },
   {
-    name: "Edit labels",
+    name: 'Edit labels',
     icon: faPencilAlt,
   },
   {
-    name: "Archive",
+    name: 'Archive',
     icon: faArchive,
   },
   {
-    name: "Trash",
+    name: 'Trash',
     icon: faTrash,
   },
 ];

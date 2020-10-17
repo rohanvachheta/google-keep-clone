@@ -1,19 +1,19 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState, useContext } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState, useContext } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faImage,
   faEdit,
   faCheckSquare,
-} from "@fortawesome/free-solid-svg-icons";
-import "./index.css";
-import NoteContext from "./../../context/noteData.context";
-import SimpleResizeableEditor from "./draft";
+} from '@fortawesome/free-solid-svg-icons';
+import './index.css';
+import NoteContext from '../../context/noteData.context';
+import SimpleResizeableEditor from './draft';
 
 const TextEditor = () => {
   const [isFocused, setisFocused] = useState(false);
-  const [imageUrl, setimageUrl] = useState("");
-  const [inputValue, setinputValue] = useState("");
+  const [imageUrl, setimageUrl] = useState('');
+  const [inputValue, setinputValue] = useState('');
   const inputFileRef = React.createRef();
   const onFocus = () => {
     setisFocused(true);
@@ -22,17 +22,17 @@ const TextEditor = () => {
     setisFocused(false);
   };
 
-  const handleKeyDown = (e) => {
-    e.target.style.height = "inherit";
+  const handleKeyDown = e => {
+    e.target.style.height = 'inherit';
     e.target.style.height = `${e.target.scrollHeight}px`;
     // In case you have a limitation
     // e.target.style.height = `${Math.min(e.target.scrollHeight, limit)}px`;
   };
 
-  const onImageChange = (event) => {
+  const onImageChange = event => {
     if (event.target.files && event.target.files[0]) {
-      let reader = new FileReader();
-      let file = event.target.files[0];
+      const reader = new FileReader();
+      const file = event.target.files[0];
 
       reader.onloadend = () => {
         setimageUrl(URL.createObjectURL(file));
@@ -42,7 +42,7 @@ const TextEditor = () => {
       reader.readAsDataURL(file);
     }
   };
-  const handleImageUpload = (e) => {
+  const handleImageUpload = e => {
     e.preventDefault();
     inputFileRef.current.click();
     //
@@ -50,7 +50,7 @@ const TextEditor = () => {
 
   const removeFocusInput = () => {
     setisFocused(false);
-    setimageUrl("");
+    setimageUrl('');
   };
 
   const { addNote } = useContext(NoteContext);
@@ -60,12 +60,12 @@ const TextEditor = () => {
       imageUrl,
       desc: inputValue,
     });
-    setinputValue("");
+    setinputValue('');
     setisFocused(false);
-    setimageUrl("");
+    setimageUrl('');
   };
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setinputValue(e.target.value);
   };
 
@@ -73,7 +73,7 @@ const TextEditor = () => {
     <div className="center">
       <div
         className={` editor ${
-          isFocused ? "text-editor text-block-editor" : "text-editor"
+          isFocused ? 'text-editor text-block-editor' : 'text-editor'
         } `}
       >
         {isFocused && (
@@ -128,7 +128,7 @@ const TextEditor = () => {
               )}
               <button
                 className="btn"
-                style={{ marginLeft: "10px" }}
+                style={{ marginLeft: '10px' }}
                 onClick={removeFocusInput}
               >
                 cancel

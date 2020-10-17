@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-const MouseOver = (props) => {
+const MouseOver = props => {
   const [onmouseOver, setonmouseOver] = useState(false);
 
   const handleMouseOver = () => {
