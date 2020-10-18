@@ -9,12 +9,12 @@ import NoteContext from '../../context/noteData.context';
 const ListTransition = ({ list, DeleteNote, addDoneNote, doneNotes }) => (
   <Transition
     items={list}
-    keys={item => item.id}
+    keys={(item) => item.id}
     from={{ opacity: 0 }}
     enter={{ opacity: 1 }}
     leave={{ opacity: 0 }}
   >
-    {item => props => (
+    {(item) => (props) => (
       <div style={props} key={item.id}>
         <KeepNoteCard
           {...item}
@@ -39,15 +39,15 @@ ListTransition.defaultProps = {
   doneNotes: false,
 };
 
-const KeepsDataList = props => {
+const KeepsDataList = (props) => {
   const { DeleteNote, addDoneNote, searchValue } = useContext(NoteContext);
 
   let { list, doneNotes } = useContext(NoteContext);
 
   if (searchValue) {
-    list = list.filter(item => item.desc.toLowerCase().includes(searchValue));
+    list = list.filter((item) => item.desc.toLowerCase().includes(searchValue));
 
-    doneNotes = doneNotes.filter(item =>
+    doneNotes = doneNotes.filter((item) =>
       item.desc.toLowerCase().includes(searchValue),
     );
   }

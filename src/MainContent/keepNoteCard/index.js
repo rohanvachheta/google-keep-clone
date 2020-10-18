@@ -23,7 +23,7 @@ const KeepNoteCard = ({
   const handleDoneChange = () => addDoneNote({ title, desc, id, imageUrl });
   return (
     <MouseOver
-      render={isActive => (
+      render={(isActive) => (
         <div className={`note-card ${isActive && 'note-card-hover'} `}>
           <div
             className="d-flex justify-content-center mb-2 "
