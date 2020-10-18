@@ -12,7 +12,7 @@ const fadeIn = keyframes`
 
 `;
 
-/*learning curver
+/* learning curver
   https://medium.com/@_alanbsmith/component-based-design-168811e0c4ab
 
   https://adele.uxpin.com/
@@ -51,6 +51,7 @@ const fadeIn = keyframes`
 
 const StyleButton = styled.button`
   align-self: auto;
+  animation: 2s ${fadeIn} ease-in;
   background-color: black;
   border: none;
   color: ${({ secoundary }) => (secoundary ? 'white' : 'red')};
@@ -59,7 +60,6 @@ const StyleButton = styled.button`
   outline: none;
   padding: 1rem 1rem;
   text-shadow: none;
-  animation: 2s ${fadeIn} ease-in;
   ${({ secoundary }) =>
     secoundary &&
     css`
@@ -86,18 +86,16 @@ const SuperButton = styled(StyleButton)`
   }
 `;
 
-const AppStyled = () => {
-  return (
-    <div>
-      <StyleButton>test button</StyleButton>
+const AppStyled = () => (
+  <div>
+    <StyleButton>test button</StyleButton>
 
-      <StyleButton secoundary>test button secoundary</StyleButton>
-      <SuperButton>hello</SuperButton>
+    <StyleButton secoundary>test button secoundary</StyleButton>
+    <SuperButton>hello</SuperButton>
 
-      <Link>test</Link>
-    </div>
-  );
-};
+    <Link>test</Link>
+  </div>
+);
 
 AppStyled.propTypes = {
   //
